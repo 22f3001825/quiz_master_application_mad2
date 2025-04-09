@@ -466,7 +466,7 @@ class QuestionListAPI(Resource):
             return {"message": "Invalid input, expected a dictionary or a list of dictionaries"}, 400
 
 @app.route('/api/quizzes/<int:quiz_id>', methods=['GET'])
-#@auth_required('token')
+@auth_required('token')
 def get_quiz(quiz_id):
     try:
         quiz = Quiz.query.get(quiz_id)
@@ -491,7 +491,7 @@ def get_quiz(quiz_id):
         return jsonify({'message': 'Internal Server Error', 'error': str(e)}), 500
 
 @app.route('/api/quizzes/<int:quiz_id>/questions', methods=['GET'])
-#@auth_required('token')
+@auth_required('token')
 def get_quiz_questions(quiz_id):
     try:
         quiz = Quiz.query.get(quiz_id)
@@ -515,7 +515,7 @@ def get_quiz_questions(quiz_id):
 
 
 @app.route('/api/quizzes/<int:quiz_id>/submit', methods=['POST'])
-#@auth_required('token')
+@auth_required('token')
 def submit_quiz(quiz_id):
     try:
         data = request.json
@@ -619,7 +619,7 @@ def submit_quiz(quiz_id):
         app.logger.error('An error occurred while submitting quiz: %s', str(e), exc_info=True)
         return jsonify({'message': 'Internal Server Error', 'error': str(e)}), 500
 @app.route('/api/quizzes/<int:quiz_id>/results', methods=['GET'])
-#@auth_required('token')
+@auth_required('token')
 def get_quiz_results(quiz_id):
     try:
         user_id = current_user.id
@@ -682,7 +682,7 @@ def get_quiz_results(quiz_id):
         app.logger.error('An error occurred while fetching quiz results: %s', str(e))
         return jsonify({'message': 'Internal Server Error', 'error': str(e)}), 500
 @app.route('/api/scores', methods=['GET'])
-#@auth_required('token')
+@auth_required('token')
 def get_scores():
     try:
         user_id = current_user.id
@@ -797,7 +797,7 @@ class ScoreListAPI(Resource):
         db.session.commit()
         return {"message": "Score created"}, 201
 @app.route('/api/users/<int:user_id>/stats', methods=['GET'])
-#@auth_required('token')
+@auth_required('token')
 def get_user_stats(user_id):
     try:
         user = User.query.get(user_id)
@@ -820,7 +820,7 @@ def get_user_stats(user_id):
         app.logger.error('An error occurred while fetching user stats: %s', str(e))
         return jsonify({'message': 'Internal Server Error', 'error': str(e)}), 500
 @app.route('/api/users/<int:user_id>/scores', methods=['GET'])
-#@auth_required('token')
+@auth_required('token')
 def get_user_scores(user_id):
     try:
         user = User.query.get(user_id)
