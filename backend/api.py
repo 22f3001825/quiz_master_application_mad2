@@ -32,4 +32,3 @@ api_bp.add_url_rule('/analytics/quiz-attempts', 'get_quiz_attempts', get_quiz_at
 api_bp.add_url_rule('/analytics/chart-data', 'get_chart_data', get_chart_data, methods=['GET'])
 api_bp.add_url_rule('/users/<int:user_id>/stats', 'get_user_stats', get_user_stats, methods=['GET'])
 api_bp.add_url_rule('/users/<int:user_id>/scores', 'get_user_scores', get_user_scores, methods=['GET'])
-api_bp.add_url_rule('/api/scores', 'get_scores', get_scores, methods=['GET'])
