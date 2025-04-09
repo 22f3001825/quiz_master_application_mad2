@@ -106,8 +106,8 @@ export default {
             <!-- Security note -->
             <div class="text-center mt-3">
               <small class="text-white">
-               <!-- <i class="fa fa-lock me-1"></i> Your information is secured with SSL encryption
-              </small> -->
+               <!-- <i class="fa fa-lock me-1"></i> Your information is secured with SSL encryption -->
+              </small> 
             </div>
           </div>
         </div>
