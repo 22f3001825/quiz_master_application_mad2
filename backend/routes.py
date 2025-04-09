@@ -126,7 +126,7 @@ def admin_dashboard():
     return '<h1>Admin Dashboard - only accessible by admin</h1>'
 
 @app.route('/user/dashboard', methods=['GET'])
-@auth_required('token')
+@auth_required()
 @roles_required('user')
 def user_dashboard():
     # This is a placeholder for the user dashboard logic
