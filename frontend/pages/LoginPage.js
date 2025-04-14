@@ -154,10 +154,24 @@ export default {
 
         console.log('Response status:', res.status);
         if (res.ok) {
-          const data = await res.json();
-          console.log('Login successful:', data);
-          localStorage.setItem('user', JSON.stringify(data));
-          this.$store.commit('setUser', data);
+    const data = await res.json();
+    console.log('Login successful:', data);
+    
+    // Store the user data
+    localStorage.setItem('user', JSON.stringify(data));
+    this.$store.commit('setUser', data);
+    
+    // IMPORTANT: Set up the authentication token for future requests
+    if (data.token) {
+      // Store token separately for easier access
+      localStorage.setItem('authToken', data.token);
+      
+      // Set up default headers for fetch requests
+      // You might want to move this to a central auth service
+      console.log("Setting up auth token:", data.token);
+    } else {
+      console.error("No token received in login response");
+    }
 
           this.message = "Login successful! Redirecting to your dashboard...";
           this.category = 'success';
