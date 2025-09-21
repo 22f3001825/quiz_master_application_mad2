@@ -88,4 +88,4 @@ celery -A app.celery_app beat -l INFO    # Start Celery beat scheduler
 
 ---
 
-**Developed by Ali Jawad as part of the Modern Application Development course at IIT Madras.**
+**Developed by Ali Jawad as part of the Modern Application Development course at IIT Madras**
